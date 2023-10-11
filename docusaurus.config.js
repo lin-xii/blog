@@ -10,16 +10,11 @@ const config = {
   tagline: "刀耕火种的程序猿",
   favicon: "img/favicon.ico",
 
-  // Set the production url of your site here
-  url: "https://lin-xii.github.io",
-  // Set the /<baseUrl>/ pathname under which your site is served
-  // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: "/blog/",
-
   // GitHub pages deployment config.
-  // If you aren't using GitHub pages, you don't need these.
-  organizationName: "lin-xii", // Usually your GitHub org/user name.
+  url: "https://lin-xii.github.io",
+  baseUrl: "/blog/",
   projectName: "blog", // Usually your repo name.
+  organizationName: "lin-xii", // Usually your GitHub org/user name.
 
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
@@ -61,7 +56,7 @@ const config = {
       navbar: {
         title: "林十二XII",
         logo: {
-          alt: "My Site Logo",
+          alt: "Site Logo",
           src: "img/avatar.JPG",
         },
         items: [
@@ -82,14 +77,6 @@ const config = {
               {
                 label: "Twitter",
                 href: "https://twitter.com/docusaurus",
-              },
-              {
-                label: "Blog",
-                to: "/blog",
-              },
-              {
-                label: "GitHub",
-                href: "https://github.com/lin-xii",
               },
             ],
           },
