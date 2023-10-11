@@ -90,6 +90,15 @@ const config = {
         darkTheme: darkCodeTheme,
       },
     }),
+
+  plugins: [
+    [
+      require.resolve("docusaurus-lunr-search"),
+      {
+        languages: ["en", "zh"], // language codes
+      },
+    ],
+  ],
 };
 
 module.exports = config;
