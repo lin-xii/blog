@@ -53,6 +53,7 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      // SEO
       metadata: [
         {
           name: "keywords",
