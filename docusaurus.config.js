@@ -36,12 +36,11 @@ const config = {
         blog: {
           routeBasePath: "/",
           showReadingTime: true,
-          blogSidebarCount: 20,
-          blogSidebarTitle: "最近文章",
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          // editUrl:
-          //   "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
+          blogSidebarCount: "ALL",
+          blogSidebarTitle: "全部文章",
+          blogTitle: "林十二XII 的 Blog",
+          blogDescription: "刀耕火种的程序猿",
+          postsPerPage: 10,
         },
         theme: {
           customCss: require.resolve("./src/css/custom.css"),
