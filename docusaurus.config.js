@@ -63,6 +63,7 @@ const config = {
         },
         items: [
           { to: "/blog", label: "Blog", position: "left" },
+          { to: "/tags", label: "Tags", position: "left" },
           {
             href: "https://github.com/lin-xii",
             label: "GitHub",
