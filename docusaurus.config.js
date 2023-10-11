@@ -13,6 +13,7 @@ const config = {
   // GitHub pages deployment config.
   url: "https://lin-xii.github.io",
   baseUrl: "/blog/",
+  trailingSlash: false,
   projectName: "blog", // Usually your repo name.
   organizationName: "lin-xii", // Usually your GitHub org/user name.
 
