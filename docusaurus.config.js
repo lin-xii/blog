@@ -53,6 +53,12 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      metadata: [
+        {
+          name: "keywords",
+          content: "lin-xii,林十二,林十二XII,blog,博客,小破站",
+        },
+      ],
       // Replace with your project's social card
       image: "img/docusaurus-social-card.jpg",
       navbar: {
