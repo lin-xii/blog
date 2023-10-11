@@ -92,14 +92,20 @@ const config = {
       },
     }),
 
-  plugins: [
-    [
+  plugins: [injectLunrSearch()],
+};
+
+module.exports = config;
+
+function injectLunrSearch() {
+  if (process.env.NODE_ENV === "production") {
+    // if (process.env.NODE_ENV === "development") {
+    return [
       require.resolve("docusaurus-lunr-search"),
       {
         languages: ["en", "zh"], // language codes
       },
-    ],
-  ],
-};
-
-module.exports = config;
+    ];
+  }
+  return null;
+}
