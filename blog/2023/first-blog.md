@@ -2,6 +2,7 @@
 title: 小站第一篇blog
 date: 2023-10-11
 authors: lin-xii
+tags: [开篇]
 ---
 
 ## 开始写 blog 了

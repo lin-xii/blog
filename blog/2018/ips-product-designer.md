@@ -2,6 +2,7 @@
 title: IPS产品经理
 authors: lin-xii
 date: 2018-11-25
+tags: [产品经理, 吐槽, 奇葩事]
 ---
 
 ## 吐槽

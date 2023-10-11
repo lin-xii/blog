@@ -2,6 +2,7 @@
 title: 前端视角的可观测性(一)
 authors: lin-xii
 date: 2023-07-26
+tags: [前端, 可观测性, 一点想法]
 ---
 
 ## TL;DR
