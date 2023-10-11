@@ -1,5 +1,5 @@
 ---
-title: 小站第一篇blog
+title: 小破站第一篇blog
 date: 2023-10-11
 authors: lin-xii
 tags: [开篇]
