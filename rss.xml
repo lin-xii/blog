@@ -9,6 +9,17 @@
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-Hans</language>
         <item>
+            <title><![CDATA[GraphQL schema 基本概念]]></title>
+            <link>https://lin-xii.github.io/blog/2023/apollo-server/graphql-schema-basics</link>
+            <guid>https://lin-xii.github.io/blog/2023/apollo-server/graphql-schema-basics</guid>
+            <pubDate>Fri, 13 Oct 2023 00:00:00 GMT</pubDate>
+            <description><![CDATA[一些对 schema 的理解。]]></description>
+            <content:encoded><![CDATA[<p>一些对 schema 的理解。</p><h2 class="anchor anchorWithStickyNavbar_LWe7" id="tldr">TL;DR<a href="#tldr" class="hash-link" aria-label="TL;DR的直接链接" title="TL;DR的直接链接">​</a></h2><p>Schema 是一种描述数据结构的方式，与数据实际存储的方式、结构和实现技术无关。</p><ul><li>GraphQL uses a <strong>schema</strong> to describe the shape of data.</li><li>The schema defines a hierarchy of <strong>types</strong> with <strong>field</strong> that are populated from data stores.</li><li>The schema specifies exactly which <strong>queries</strong> and <strong>mutations</strong> are available for clients to excute.</li></ul><h2 class="anchor anchorWithStickyNavbar_LWe7" id="original-docs">Original docs<a href="#original-docs" class="hash-link" aria-label="Original docs的直接链接" title="Original docs的直接链接">​</a></h2><p>Your GraphQL server uses a <strong>schema</strong> to describe the shape of your available data. This schema defines a hierarchy of <strong>types</strong> with <strong>fields</strong> that are populated from your back-end data stores. The schema also specifies exactly which <strong>queries</strong> and <strong>mutations</strong> are available for clients to execute.</p><p>This article describes the fundamental building blocks of a schema and how to create one for your GraphQL server.</p><h2 class="anchor anchorWithStickyNavbar_LWe7" id="参考资料">参考资料<a href="#参考资料" class="hash-link" aria-label="参考资料的直接链接" title="参考资料的直接链接">​</a></h2><ol><li><a href="https://www.apollographql.com/docs/apollo-server/schema/schema" target="_blank" rel="noopener noreferrer">Apollo Server Docs</a></li></ol>]]></content:encoded>
+            <category>Apollo Server</category>
+            <category>GraphQL</category>
+            <category>Basics</category>
+        </item>
+        <item>
             <title><![CDATA[GraphQL schema 命名习惯]]></title>
             <link>https://lin-xii.github.io/blog/2023/apollo-server/naming-conventions</link>
             <guid>https://lin-xii.github.io/blog/2023/apollo-server/naming-conventions</guid>

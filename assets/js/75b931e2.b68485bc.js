@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkblog=self.webpackChunkblog||[]).push([[172],{2844:l=>{l.exports=JSON.parse('{"label":"Apollo Server","permalink":"/blog/tags/apollo-server","allTagsPath":"/blog/tags","count":1}')}}]);
