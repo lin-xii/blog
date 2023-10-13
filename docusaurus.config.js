@@ -89,7 +89,7 @@ const config = {
             title: "Other",
             items: [
               {
-                label: "Twitter",
+                label: "Docusaurus",
                 href: "https://twitter.com/docusaurus",
               },
             ],
