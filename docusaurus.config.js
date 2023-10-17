@@ -86,11 +86,24 @@ const config = {
         style: "dark",
         links: [
           {
-            title: "Other",
+            title: "联系方式",
             items: [
               {
-                label: "Docusaurus",
-                href: "https://twitter.com/docusaurus",
+                label: "Twitter",
+                href: "https://twitter.com/lin__xii",
+              },
+              {
+                label: "Bilibili",
+                href: "https://space.bilibili.com/5346265",
+              },
+            ],
+          },
+          {
+            title: "小伙伴们",
+            items: [
+              {
+                label: "TopCaver",
+                href: "http://blog.topcaver.com/",
               },
             ],
           },
