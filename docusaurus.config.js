@@ -98,7 +98,7 @@ const config = {
         style: "dark",
         links: [
           {
-            title: "联系方式",
+            title: "其他平台",
             items: [
               {
                 label: "Twitter",
@@ -107,6 +107,15 @@ const config = {
               {
                 label: "Bilibili",
                 href: "https://space.bilibili.com/5346265",
+              },
+            ],
+          },
+          {
+            title: "站内工具",
+            items: [
+              {
+                label: "rss",
+                href: "https://lin-xii.github.io/blog/rss.xml",
               },
             ],
           },
