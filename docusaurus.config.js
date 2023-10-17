@@ -42,6 +42,18 @@ const config = {
           blogTitle: "林十二XII 的 Blog",
           blogDescription: "刀耕火种的程序猿",
           postsPerPage: 10,
+          feedOptions: {
+            type: "rss",
+            copyright: `Copyright © ${new Date().getFullYear()} 林十二XII 的 Blog`,
+            createFeedItems: async (params) => {
+              const { blogPosts, defaultCreateFeedItems, ...rest } = params;
+              return defaultCreateFeedItems({
+                // keep only the 10 most recent blog posts in the feed
+                blogPosts: blogPosts.filter((item, index) => index < 10),
+                ...rest,
+              });
+            },
+          },
         },
         theme: {
           customCss: require.resolve("./src/css/custom.css"),
