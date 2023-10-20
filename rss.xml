@@ -4,11 +4,24 @@
         <title>林十二XII 的 Blog Blog</title>
         <link>https://lin-xii.github.io/blog/</link>
         <description>林十二XII 的 Blog Blog</description>
-        <lastBuildDate>Fri, 13 Oct 2023 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 19 Oct 2023 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-Hans</language>
         <copyright>Copyright © 2023 林十二XII 的 Blog</copyright>
+        <item>
+            <title><![CDATA[在Apollo Server中，如何解决‘413 Payload too large’错误？]]></title>
+            <link>https://lin-xii.github.io/blog/2023/413-payload-too-large</link>
+            <guid>https://lin-xii.github.io/blog/2023/413-payload-too-large</guid>
+            <pubDate>Thu, 19 Oct 2023 00:00:00 GMT</pubDate>
+            <description><![CDATA[施工中]]></description>
+            <content:encoded><![CDATA[<p>施工中</p>]]></content:encoded>
+            <category>apollo</category>
+            <category>apollo-server</category>
+            <category>nginx</category>
+            <category>express</category>
+            <category>413</category>
+        </item>
         <item>
             <title><![CDATA[GraphQL schema 基本概念]]></title>
             <link>https://lin-xii.github.io/blog/2023/apollo-server/graphql-schema-basics</link>
