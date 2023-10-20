@@ -2,6 +2,7 @@
 title: Introduction to Apollo Server
 date: 2023-10-20
 authors: lin-xii
+sidebar_label: Introduction
 tags: [Apollo, GraphQL]
 ---
 
