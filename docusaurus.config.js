@@ -33,7 +33,9 @@ const config = {
       "classic",
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
-        docs: false,
+        docs: {
+          sidebarPath: require.resolve("./sidebars.js"),
+        },
         blog: {
           routeBasePath: "/",
           showReadingTime: true,
@@ -83,6 +85,7 @@ const config = {
         items: [
           { to: "/blog", label: "Blog", position: "left" },
           { to: "/tags", label: "Tags", position: "left" },
+          { to: "/docs/about-me", label: "Docs", position: "left" },
           {
             href: "https://github.com/lin-xii",
             label: "GitHub",
