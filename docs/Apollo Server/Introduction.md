@@ -3,7 +3,7 @@ title: Introduction to Apollo Server
 date: 2023-10-20
 authors: lin-xii
 sidebar_label: Introduction
-tags: [Apollo, GraphQL]
+tags: [Apollo, GraphQL, 渣翻译]
 ---
 
 **Apollo Server 是一个[开源](https://github.com/apollographql/apollo-server)、规范化的 GraphQL 服务器实现。** 它兼容任何 GraphQL 客户端，包括 [Apollo Client](https://www.apollographql.com/docs/react)。这是构建产品化、自文档式、数据存储方式无关的 GraphQL API 的最佳方式。
