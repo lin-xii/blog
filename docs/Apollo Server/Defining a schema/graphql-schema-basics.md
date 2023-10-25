@@ -109,7 +109,25 @@ GraphQL 默认的 scalar 类型有：
 - `Int`：有符号 32-bit 整数
 - `Float`：有符号 双精度 浮点数
 - `String`：UTF-8 编码的字符串
-- ` Boolean`：`true`或者`false`
+- `Boolean`：`true`或者`false`
 - `ID`(初始化为字符串)：一个常被用于获取对象或缓存键值的唯一标识。虽然被初始化为字符串，但`ID`并不是人类可读的。
 
 这些原始类型覆盖了主要的使用场景。在更具体的场景中，可以创建 自定义 scalar 类型。
+
+### Object
+
+GraphQL schema 中，大多数自定义的类型，都是对象类型。一个对象类型包含了多个字段的集合，每个字段都拥有各自的类型。
+
+两个 Object 类型可以互相包含彼此，作为各自字段的类型。例如我们之前示例所示：
+
+```graphql
+type Book {
+  title: String
+  author: Author
+}
+
+type Author {
+  name: String
+  books: [Book]
+}
+```
