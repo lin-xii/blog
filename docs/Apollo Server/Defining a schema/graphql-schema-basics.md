@@ -150,7 +150,7 @@ query UniversalQuery {
 
 `Query`是一种特殊的 Object 类型，它定义了所有用于提供给客户端查询的顶级入口。
 
-`Query`类型下的每一个字段定义了不同入口点的名字与返回类型。`Query`类型的例子类似下边这样：
+`Query`类型下的每一个字段定义了不同入口点的名字与返回类型。`Query`类型的例子类似下面这样：
 
 ```graphql
 type Query {
@@ -234,3 +234,51 @@ query GetBooks {
   }
 }
 ```
+
+### Mutation 类型
+
+在结构、作用上，`Mutation`类型与[`Query`类型](#query-类型)极为相似。不过`Query`类型定义的入口点服务于`read`操作，而`Mutation`类型定义的入口点服务于`write`操作。
+
+`Mutation`类型的每一个字段，都定义了不同的入口点签名和返回类型。`Mutation`类型的示例类似于下面这样：
+
+```graphql
+type Mutation {
+  addBook(title: String, author: String): Book
+}
+```
+
+这个`Mutation`类型定义了一个可用的 mutation，`addBook`。这个 mutation 接受 2 个参数(`title`和`author`)并且返回一个新创建的`Book`对象。如你所想，这个`Book`对象的结构与 schema 定义中的相符。
+
+#### 构造一个 mutation
+
+类似 query，mutation 与 schema 类型定义的结构相符。下面的 mutation 创建了新的`Book`并且请求新建对象中部分的字段作为返回值。
+
+```graphql
+mutation CreateBook {
+  addBook(title: "Fox in Socks", author: "Dr. Seuss") {
+    title
+    author {
+      name
+    }
+  }
+}
+```
+
+与查询一样，我们的服务器将用一个符合 Mutation 结构的结果，来相应这个 mutation。就像这样：
+
+```json
+{
+  "data": {
+    "addBook": {
+      "title": "Fox in Socks",
+      "author": {
+        "name": "Dr. Seuss"
+      }
+    }
+  }
+}
+```
+
+单个 mutation 操作可以包括多个`Mutation`类型的顶层字段。这通常意味着一个 mutation 操作将执行多个后端的写入(每个字段至少一个)。为了阻止条件竞争，顶层`Mutation`字段按照顺序解析(所有其他字段可以被并行解析)。
+
+[了解更多关于 mutation 的设计](https://www.apollographql.com/docs/apollo-server/schema/schema/#designing-mutations)
