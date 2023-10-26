@@ -286,3 +286,49 @@ mutation CreateBook {
 ### Subscription
 
 参见 [Subscriptions](https://www.apollographql.com/docs/apollo-server/data/subscriptions)
+
+### Input
+
+Input 类型 是一种特殊的 object 类型，它允许你提供结构化数据作为**参数**提供给字段(尽量不要平铺大量 scalar 类型 作为参数)。
+
+Input 类型 的定义与普通 object 类型相似，但它的关键字为`input`：
+
+```graphql
+input BlogPostContent {
+  title: String
+  body: String
+}
+```
+
+每一个 input 类型 的字段，可以是 [scalar](#scalar)、enum 或者*另一个* input 类型:
+
+```graphql
+input BlogPostContent {
+  title: String
+  body: String
+  media: [MediaDetails!]
+}
+
+input MediaDetails {
+  format: MediaFormat!
+  url: String!
+}
+
+enum MediaFormat {
+  IMAGE
+  VIDEO
+}
+```
+
+定义 input 类型 后，任意数量的不同对象字段可以将其作为参数：
+
+```graphql
+type Mutation {
+  createBlogPost(content: BlogPostContent!): Post
+  updateBlogPost(id: ID!, content: BlogPostContent!): Post
+}
+```
+
+当多个操作需要相同信息集合的时候，input 类型 很有用，但你应该谨慎的复用它们。操作最终需要的参数也许会发生变化。
+
+> **谨慎地同时在`Query`和`Mutation`的字段，使用相同的 input 类型。**在很多场景，mutation 所需的参数，相对于查询，是可选的。你也许想创建单独的 input 类型 用于每一个操作类型。
