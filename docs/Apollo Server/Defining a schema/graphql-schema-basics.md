@@ -131,3 +131,17 @@ type Author {
   books: [Book]
 }
 ```
+
+#### \_\_typename 字段
+
+每一个 schema 中的 Object 类型，都会自动包含一个名为`__typename`的字段。这个字段，会以`String`的形式，返回该 Object 类型的名称(例如：`Book`和`Author`)。
+
+GraphQL 客户端 可以通过对象的`__typename`来完成很多事情，例如一个可以返回多类型的字段，决定返回何种类型(例如：union 或者 interface)。Apollo 客户端 依靠`__typename`来缓存查询结果，因此它会在每个查询的对象中，自动包含`__typename`字段。
+
+因为`__typename`总是有效的，所以下边的查询是合法的：
+
+```graphql
+query UniversalQuery {
+  __typename
+}
+```
