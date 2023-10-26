@@ -91,8 +91,8 @@ type Author {
 所有定义在 GraphQL schema 中的类型，都属于以下类别之一：
 
 - [Scalar](#scalar)
-- Object
-  - 对象包含 3 种特殊的**根操作类型**：Query、Muation 和 Subscription。
+- [Object](#object)
+  - 对象包含 3 种特殊的**根操作类型**：[Query](#query-类型)、Muation 和 Subscription。
 - Input
 - Enum
 - Union
@@ -143,5 +143,94 @@ GraphQL 客户端 可以通过对象的`__typename`来完成很多事情，例�
 ```graphql
 query UniversalQuery {
   __typename
+}
+```
+
+### Query 类型
+
+`Query`是一种特殊的 Object 类型，它定义了所有用于提供给客户端查询的顶级入口。
+
+`Query`类型下的每一个字段定义了不同入口点的名字与返回类型。`Query`类型的例子类似下边这样：
+
+```graphql
+type Query {
+  books: [Book]
+  authors: [Author]
+}
+```
+
+示例中的`Query`类型，定义了 2 个字段：`books` 和 `authors`。每个字段返回一个对应类型的列表。
+
+使用基于 REST 的 API，books 和 authors 也许通过不同的端点返回(例如,`/api/books`和`/api/authors`)。GraphQL 的灵活性使得客户端可以用一个请求查询多种资源。
+
+#### 构建一个查询
+
+当客户端构建查询去查询你的 GraphQL 服务时，这些查询结果的数据结构与 schema 中定义类型的结构相符。
+
+基于目前所见的示例，客户端可以执行下边的查询，一个查询同时获取一个全部 book 名的列表*和*一个全部作者名的列表。
+
+```graphql
+query GetBooksAndAuthors {
+  books {
+    title
+  }
+
+  authors {
+    name
+  }
+}
+```
+
+我们的服务器将会返回符合查询结构的结果，就像这样：
+
+```json
+{
+  "data": {
+    "books": [
+      {
+        "title": "City of Glass"
+      },
+      ...
+    ],
+    "authors": [
+      {
+        "name": "Paul Auster"
+      },
+      ...
+    ]
+  }
+}
+```
+
+虽然在某些场景，一次查询两个独立的列表可能是有用的，但是客户端或许更倾向于查询单独的 books 列表，并且每本书的作者名包含在返回结果中。
+
+因为我们 schema 中的`Book`类型有一个`Author`类型的`author`字段，客户端可以使用下边的查询替代上边的查询：
+
+```graphql
+query GetBooks {
+  books {
+    title
+    author {
+      name
+    }
+  }
+}
+```
+
+再一次，我们的服务器将会返回符合查询结构的结果：
+
+```json
+{
+  "data": {
+    "books": [
+      {
+        "title": "City of Glass",
+        "author": {
+          "name": "Paul Auster"
+        }
+      },
+      ...
+    ]
+  }
 }
 ```
