@@ -146,7 +146,7 @@ query UniversalQuery {
 }
 ```
 
-### Query 类型
+### Query
 
 `Query`是一种特殊的 Object 类型，它定义了所有用于提供给客户端查询的顶级入口。
 
@@ -235,7 +235,7 @@ query GetBooks {
 }
 ```
 
-### Mutation 类型
+### Mutation
 
 在结构、作用上，`Mutation`类型与[`Query`类型](#query-类型)极为相似。不过`Query`类型定义的入口点服务于`read`操作，而`Mutation`类型定义的入口点服务于`write`操作。
 
@@ -283,6 +283,6 @@ mutation CreateBook {
 
 [了解更多关于 mutation 的设计](https://www.apollographql.com/docs/apollo-server/schema/schema/#designing-mutations)
 
-### Subscription 类型
+### Subscription
 
 参见 [Subscriptions](https://www.apollographql.com/docs/apollo-server/data/subscriptions)
