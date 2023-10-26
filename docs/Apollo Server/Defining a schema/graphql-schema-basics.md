@@ -92,8 +92,8 @@ type Author {
 
 - [Scalar](#scalar)
 - [Object](#object)
-  - 对象包含 3 种特殊的**根操作类型**：[Query](#query-类型)、Muation 和 Subscription。
-- Input
+  - 对象包含 3 种特殊的**根操作类型**：[Query](#query-类型)、[Muation](#mutation) 和 [Subscription](#subscription)。
+- [Input](#input)
 - Enum
 - Union
 - Interface
