@@ -282,3 +282,7 @@ mutation CreateBook {
 单个 mutation 操作可以包括多个`Mutation`类型的顶层字段。这通常意味着一个 mutation 操作将执行多个后端的写入(每个字段至少一个)。为了阻止条件竞争，顶层`Mutation`字段按照顺序解析(所有其他字段可以被并行解析)。
 
 [了解更多关于 mutation 的设计](https://www.apollographql.com/docs/apollo-server/schema/schema/#designing-mutations)
+
+### Subscription 类型
+
+参见 [Subscriptions](https://www.apollographql.com/docs/apollo-server/data/subscriptions)
