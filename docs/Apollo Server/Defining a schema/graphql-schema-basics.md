@@ -98,6 +98,8 @@ type Author {
 - Union
 - Interface
 
+> 私货：其实，type 定义的，都可以算作 object。但是分为自定义类型，和 Query、Mutation、Subscription 这 3 种特殊的。input 定义的，结构上也算是 object，只是关键字换成了 input。
+
 每一种在后文都有所描述。
 
 ### Scalar
