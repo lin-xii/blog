@@ -421,3 +421,28 @@ const resolvers = {
 - **删除**字段的参数
 
 Apollo Studio 这类的 graph 管理工具，可以帮助你判断一个潜在的 schema 变更，是否会影响你正在使用的客户端。Studio 同样提供了字段级别的性能指标、schema 历史追踪，并且通过 operation 的安全清单，提供高级安全特性。
+
+## 描述(文档字符串)
+
+GraphQL 的 schema definition language(SDL)支持 markdown 格式的文档字符串，称为**描述**。这些文档帮助 graph 的使用者了解字段并学习如何使用。
+
+下面的示例展示了如何使用单行字符串字面量和多行字符块：
+
+```graphql
+"Description for the type"
+type MyObjectType {
+  """
+  Description for field
+  Supports **multi-line** description for your [API](http://example.com)!
+  """
+  myField: String!
+
+  otherField(
+    "Description for argument"
+    arg: Int
+  )
+}
+```
+
+高度文档化的 schema 有助于提供更好的开发体验，因为 GraphQL 开发工具(例如 [Apollo GraphQL Exploer](https://www.apollographql.com/docs/studio/explorer/))自动补全字段名时，可以看到 schema 提供的描述。
+而且，当[Apollo Studio](https://studio.apollographql.com/)使用性能监控和 client awareness features 时，会把描述与字段使用情况和性能指标一起展示出来。
