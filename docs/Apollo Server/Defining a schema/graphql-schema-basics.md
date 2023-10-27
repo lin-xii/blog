@@ -511,3 +511,142 @@ type WeatherInfo {
 ```
 
 如前所述，每一个类型可以填充不同来源的数据(或多个数据源的)。举个例子，`Event`类型的`name`和`date`也许被我们后端数据库的数据填充，而`WeatherInfo`类型使用第三方的天气 API 填充数据。
+
+## 设计 mutation
+
+在 GraphQL，建议所有 mutation 的返回值包含 mutation 修改的数据。这样可以使客户端获取最新的持久化数据而不用发送额外查询。
+
+支持更新`User`的`email`的 schema，包括以下内容：
+
+```graphql
+type Mutation {
+  # This mutation takes id and email parameters and responds with a User
+  updateUserEmail(id: ID!, email: String!): User
+}
+
+type User {
+  id: ID!
+  name: String!
+  email: String!
+}
+```
+
+然后，客户端能够根据 schema 的结构，来执行 mutation：
+
+```graphql
+mutation updateMyUser {
+  updateUserEmail(id: 1, email: "jane@example.com") {
+    id
+    name
+    email
+  }
+}
+```
+
+在 GraphQL 服务器 执行 mutation 并且存储新邮件地址后，将给客户端返回以下结果：
+
+```json
+{
+  "data": {
+    "updateUserEmail": {
+      "id": "1",
+      "name": "Jane Doe",
+      "email": "jane@example.com"
+    }
+  }
+}
+```
+
+虽然不强制要求 mutation 的返回值中包含被修改的数据，但这样做可以更好的提升客户端代码的效率。和查询一样，明确 哪些 mutation 对客户端有用，有助于调整 schema 的结构。
+
+### 构造 mutation 返回值
+
+一个 mutation 可以修改多个类型，或者多个*相同*类型的实例。举个例子，使用户能够给博客文章点赞的 mutation 可能会[增加](https://www.apollographql.com/docs/apollo-server/schema/schema/#structuring-mutation-responses)一篇`Post`的`likes`数量并且更新用户的`likedPosts`列表。这使得 mutation 返回值的结构，看起来不那么明显。
+
+> 私货：原文使用了 increment，看起来是语法错误，个人认为是 increase。
+
+另外，由于 mutation 会修改数据，所以比查询更容易引发错误。mutation 甚至可能引发部分错误，一部分数据修改成功，而另外一部分失败了。无论什么样的错误类型，重要的是能以一致的方式通知客户端。
+
+为了解决这些担忧，我们建议在 schema 中定义`MutationResponse`[接口](https://www.apollographql.com/docs/apollo-server/schema/unions-interfaces/#interface-type)，连同一个*实现*了这个接口的对象类型集合(每个 mutation 一个)。
+
+下面是`MutationResponse`接口可能的结构：
+
+```graphql
+interface MutationResponse {
+  code: String!
+  success: Boolean!
+  message: String!
+}
+```
+
+下面是实现了`MuatationResponse`接口对象可能的结构：
+
+```graphql
+type UpdateUserEmailMutationResponse implements MutationResponse {
+  code: String!
+  success: Boolean!
+  message: String!
+  user: User
+}
+```
+
+我们的`updateUserEmail`mutation 将指定`UpdateUserEmailMutationResponse`作为返回类型(而不是`User`),并且返回值结构类似下面这样：
+
+```json
+{
+  "data": {
+    "updateUserEmail": {
+      "code": "200",
+      "success": true,
+      "message": "User email was successfully updated",
+      "user": {
+        "id": "1",
+        "name": "Jane Doe",
+        "email": "jane@example.com"
+      }
+    }
+  }
+}
+```
+
+让我们逐个分析这些字段：
+
+- `code`是一个表达数据传输状态的字符串。可以理解为 HTTP 状态码。
+- `success`是一个指示 mutation 是否执行成功的布尔值。这个值允许通过客户端进行粗略的检查，以获知是否存在问题。
+- `message`是一个描述 mutation 结果、人类可读的字符串。旨在用于产品的 UI 界面。
+- `user`是通过实现`UpdateUserEmailMutationResponse`类型被添加的，为了给客户端返回最新的 user 信息。
+
+如果 mutation 修改多个类型(类似之前的给博客文章点赞的例子)，它的实现类型可以包括每个被修改类型中，一个单独的字段。
+
+```graphql
+type LikePostMutationResponse implements MutationResponse {
+  code: String!
+  success: Boolean!
+  message: String!
+  post: Post
+  user: User
+}
+```
+
+因为我们假设的`likePost`mutation 同时修改了`Post`和`User`,它的返回值包括这些类型的字段。返回值类似下面的结构：
+
+```json
+{
+  "data": {
+    "likePost": {
+      "code": "200",
+      "success": true,
+      "message": "Thanks!",
+      "post": {
+        "id": "123",
+        "likes": 5040
+      },
+      "user": {
+        "likedPosts": ["123"]
+      }
+    }
+  }
+}
+```
+
+遵从这个模式，可以给客户端提供每个请求操作结果，有用且详细的信息。有了这些信息，开发者可以更好的在客户端代码排查错误。
