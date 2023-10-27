@@ -408,3 +408,16 @@ const resolvers = {
 ### Union 和 interface
 
 详情参考 [Unions and interfaces](https://www.apollographql.com/docs/apollo-server/schema/unions-interfaces/)
+
+## schema 的迭代
+
+随着项目的扩张和发展，graph 也会随之扩大。新产品和新功能需要更多的 schema 类型和字段。为了实时跟踪这些变化，你需要在版本库中维护 schema。
+
+大多数增量变化对 schema 是安全的，并且可以向后兼容。然而，删除或者变更现有 schema 的行为可能会对 1 个或更多个客户端，造成破坏性变更。下面列出的变更是需要小心处理的破坏性变更：
+
+- **删除**类型或字段
+- **重命名**类型或字段
+- 为字段添加**可以为 null **的特性
+- **删除**字段的参数
+
+Apollo Studio 这类的 graph 管理工具，可以帮助你判断一个潜在的 schema 变更，是否会影响你正在使用的客户端。Studio 同样提供了字段级别的性能指标、schema 历史追踪，并且通过 operation 的安全清单，提供高级安全特性。
