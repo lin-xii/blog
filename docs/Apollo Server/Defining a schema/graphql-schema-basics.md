@@ -334,3 +334,73 @@ type Mutation {
 当多个操作需要相同信息集合的时候，input 类型 很有用，但你应该谨慎的复用它们。操作最终需要的参数也许会发生变化。
 
 > **谨慎地同时在`Query`和`Mutation`的字段，使用相同的 input 类型。**在很多场景，mutation 所需的参数，相对于查询，是可选的。你也许想创建单独的 input 类型 用于每一个操作类型。
+
+### Enum
+
+> 私货：enum 属于缩小范围的 scalar。
+
+enum 和 scalar 非常相似，但是它的合法值是在 schema 中被定义的。下面是一个定义的例子：
+
+```graphql
+enum AllowedColor {
+  RED
+  GREEN
+  BLUE
+}
+```
+
+当用户必须从指定列表的选项中选择一个值的时候，enum 非常有用。另外一个好处，enum 值在 Apollo Studio Explorer 等工具中，能够自动补全。
+
+enum 可以用在任何允许声明为 scalar 类型的地方(包括字段参数)，因为 enum 被初始化为字符串：
+
+```graphql
+type Query {
+  favoriteColor: AllowedColor # enum return value
+  avatar(borderColor: AllowedColor): String # enum argument
+}
+```
+
+一个查询看起来像这样：
+
+```graphql
+query GetAvatar {
+  avatar(borderColor: RED)
+}
+```
+
+#### 内部值(高级特性)
+
+有些时候，后端强制 enum 内部使用一个与公开 API 不同的值。你可以在提供给 Apollo Server 的 [resolver map](https://www.apollographql.com/docs/apollo-server/data/resolvers/#defining-a-resolver) 中，设置每个 enum 值以符合*内部*值。
+
+> 这个特性通常是不必要的，除非应用中另一个库，期望 enum 以不同的形式展示。
+
+下面的示例使用十六进制颜色代码来作为`AllowedColor`的内部值：
+
+```typescript
+const resolvers = {
+  AllowedColor: {
+    RED: "#f00",
+    GREEN: "#0f0",
+    BLUE: "#00f",
+  },
+  // ...other resolver definitions...
+};
+```
+
+这些内部值不影响公开 API。Apollo Server resolver 接收这些值而非 schema 中定义的值，如下所示：
+
+```typescript
+const resolvers = {
+  AllowedColor: {
+    RED: "#f00",
+    GREEN: "#0f0",
+    BLUE: "#00f",
+  },
+  Query: {
+    favoriteColor: () => "#f00",
+    avatar: (parent, args) => {
+      // args.borderColor is '#f00', '#0f0', or '#00f'
+    },
+  },
+};
+```
