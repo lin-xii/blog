@@ -446,3 +446,14 @@ type MyObjectType {
 
 高度文档化的 schema 有助于提供更好的开发体验，因为 GraphQL 开发工具(例如 [Apollo GraphQL Exploer](https://www.apollographql.com/docs/studio/explorer/))自动补全字段名时，可以看到 schema 提供的描述。
 而且，当[Apollo Studio](https://studio.apollographql.com/)使用性能监控和 client awareness features 时，会把描述与字段使用情况和性能指标一起展示出来。
+
+## 命名习惯
+
+GraphQL 规范 非常灵活，并且没有强制要求命名规范。不过，建立命名规范有助于确保一致性。我们建议使用以下约定：
+
+- **字段名称**：`camelCase`。许多 GraphQL 客户端是用 JavaScript、Java、Kotlin 或者 Swift 开发的，这些语言中，变量通常使用驼峰命名法。
+- **枚举值**：`ALL_CAPS`。枚举值和常量比较相似。
+- **类型名称**：`PascalCase`。JavaScript 等语言，类名通常使用帕斯卡命名法。
+- **枚举名称**：`PascalCase`。
+
+这些习惯有助于确保大多数客户端不需要定义额外的逻辑去转换服务端返回的结果。
