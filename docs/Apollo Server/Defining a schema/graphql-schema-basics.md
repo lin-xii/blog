@@ -287,7 +287,7 @@ mutation CreateBook {
 
 ### Subscription
 
-参见 [Subscriptions](https://www.apollographql.com/docs/apollo-server/data/subscriptions)
+详情参考 [Subscriptions](https://www.apollographql.com/docs/apollo-server/data/subscriptions)
 
 ### Input
 
@@ -404,3 +404,7 @@ const resolvers = {
   },
 };
 ```
+
+### Union 和 interface
+
+详情参考 [Unions and interfaces](https://www.apollographql.com/docs/apollo-server/schema/unions-interfaces/)
