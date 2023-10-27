@@ -457,3 +457,57 @@ GraphQL 规范 非常灵活，并且没有强制要求命名规范。不过，�
 - **枚举名称**：`PascalCase`。
 
 这些习惯有助于确保大多数客户端不需要定义额外的逻辑去转换服务端返回的结果。
+
+## 查询驱动 schema 设计
+
+当 GraphQL schema 根据客户端执行 operation 的需求设计时，是最强大的。虽然*可以*自定义类型，但不必和后端数据存储的结构保持一致。一个对象类型的字段可以被任意数量、不同来源的数据填充。**基于数据使用方式设计 schema，而不是存储方式。**
+
+如果你的数据存储方式包含客户端不需要的字段和关系，在 schema 中省略这些。与删除客户端正在使用的现有字段相比，向 schema 添加新字段更简单也更安全。
+
+### 查询驱动 schema 的示例
+
+我们正在创建一个展示即将到来的区域事件的 web 应用。我们希望这个应用展示名称、日期和每个事件的地点以及天气预报。
+
+在这种情况下，我们希望我们的 web 应用能够执行类似下面结构的查询：
+
+```graphql
+query EventList {
+  upcomingEvents {
+    name
+    date
+    location {
+      name
+      weather {
+        temperature
+        description
+      }
+    }
+  }
+}
+```
+
+因为我们知道这份数据的结构对我们的客户端有帮助，因此它可以为我们 schema 的结构提供信息：
+
+```graphql
+type Query {
+  upcomingEvents: [Event!]!
+}
+
+type Event {
+  name: String!
+  date: String!
+  location: Location
+}
+
+type Location {
+  name: String!
+  weather: WeatherInfo
+}
+
+type WeatherInfo {
+  temperature: Float
+  description: String
+}
+```
+
+如前所述，每一个类型可以填充不同来源的数据(或多个数据源的)。举个例子，`Event`类型的`name`和`date`也许被我们后端数据库的数据填充，而`WeatherInfo`类型使用第三方的天气 API 填充数据。
