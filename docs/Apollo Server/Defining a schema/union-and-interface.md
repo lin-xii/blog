@@ -2,6 +2,7 @@
 title: Unions and interfaces
 date: 2023-10-30
 authors: lin-xii
+sidebar_position: 2
 tags: [Apollo, GraphQL, 渣翻译]
 ---
 

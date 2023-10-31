@@ -3,6 +3,7 @@ title: Custom scalars
 date: 2023-10-30
 authors: lin-xii
 tags: [Apollo, GraphQL, 渣翻译]
+sidebar_position: 3
 ---
 
 GraphQL 规范包含了默认的 scalar 类型，`Int`、`Float`、`String`、`Boolean`和`ID`。虽然这些 scalar 类型覆盖了主要的使用场景，但一些应用需要支持其他的原子数据类型(例如`Date`)或给现有的类型增加校验。为了使这些成为可能，你可以定义 custom scalar 类型。

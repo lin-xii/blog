@@ -3,6 +3,7 @@ title: GraphQL schema basics
 date: 2023-10-25
 authors: lin-xii
 sidebar_label: Schema basics
+sidebar_position: 1
 tags: [Apollo, GraphQL, 渣翻译]
 ---
 
