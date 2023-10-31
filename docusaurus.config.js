@@ -86,7 +86,11 @@ const config = {
         items: [
           { to: "/blog", label: "Blog", position: "left" },
           { to: "/tags", label: "Tags", position: "left" },
-          { to: "/docs/about-me", label: "Docs", position: "left" },
+          {
+            to: "/docs/Apollo%20Server/Introduction",
+            label: "Apollo Server 中文文档",
+            position: "left",
+          },
           {
             href: "https://github.com/lin-xii",
             label: "GitHub",
