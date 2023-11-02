@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkblog=self.webpackChunkblog||[]).push([[4121],{8070:l=>{l.exports=JSON.parse('[{"label":"Apollo","permalink":"/blog/docs/tags/apollo","count":6},{"label":"GraphQL","permalink":"/blog/docs/tags/graph-ql","count":6},{"label":"\u6e23\u7ffb\u8bd1","permalink":"/blog/docs/tags/\u6e23\u7ffb\u8bd1","count":6}]')}}]);
