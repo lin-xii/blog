@@ -299,3 +299,51 @@ new ApolloServer({
 ```
 
 > 为了使特定的 context 适配通过`formatError`接收的错误(例如本地化和个性化)，考虑创建一个插件，它使用`didEncounterErrors`声明周期事件去添加额外的属性给这个错误。这些属性可以从`formatError`访问。
+
+### For Apollo Studio reporting
+
+> 在 Apollo Server 4 中：默认配置下，错误细节不会被包含在 trace 中。作为替代，`<masked>`替换每一个错误信息，并且`maskedBy`错误扩展替换其他扩展。`maskedBy`扩展包含了执行遮罩的插件名字(`ApolloServerPluginUsageReporting`或`ApolloServerPluginInlineTrace`)
+
+你可以使用 Apollo Studio 来分析你服务的错误率。默认配置下，作为详细跟踪发送给 Studio 的 operation 不包含错误详细信息。
+
+如果确实想将错误信息发送给 Studio，你可以发送每一个错误，在它们被传播前，你也可以修改或校对错误信息。
+
+为了发送全部错误信息到 Studio，你可以传递`{ unmodified: true }`给`sendErrors`，像下面这样：
+
+```javascript
+new ApolloServer({
+  // etc.
+  plugins: [
+    ApolloServerPluginUsageReporting({
+      // If you pass unmodified: true to the usage reporting
+      // plugin, Apollo Studio receives ALL error details
+      sendErrors: { unmodified: true },
+    }),
+  ],
+});
+```
+
+如果你想报告特定错误或在一个错误被报告前修改它，你可以传递函数给`sendErrors.trarnsform`配置，像下面这样：
+
+```javascript
+new ApolloServer({
+  // etc.
+  plugins: [
+    ApolloServerPluginUsageReporting({
+      sendErrors: {
+        transform: (err) => {
+          if (err.extensions.code === "MY_CUSTOM_CODE") {
+            // returning null will skip reporting this error
+            return null;
+          }
+
+          // All other errors are reported.
+          return err;
+        },
+      },
+    }),
+  ],
+});
+```
+
+> 如果你提供一个 Apollo API key 给 Apollo Server，usage reporting plugin 会作为默认配置自动安装。去定制 usage reporting plugin 的行为，你需要用定制化配置安装它，像下面的例子一样。
