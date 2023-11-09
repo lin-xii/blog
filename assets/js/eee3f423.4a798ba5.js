@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkblog=self.webpackChunkblog||[]).push([[9863],{8265:l=>{l.exports=JSON.parse('{"label":"RESTful","permalink":"/blog/tags/res-tful","allTagsPath":"/blog/tags","count":1}')}}]);
