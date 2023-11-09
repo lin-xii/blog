@@ -5,8 +5,6 @@ authors: lin-xii
 tags: [开篇]
 ---
 
-## 开始写 blog 了
-
 静极思动，准备捡起来原来的 blog 计划了。
 
 <!-- truncate -->
