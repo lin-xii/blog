@@ -21,6 +21,16 @@
             <category>Introspection</category>
         </item>
         <item>
+            <title><![CDATA[真的需要运动饮料么？]]></title>
+            <link>https://lin-xii.github.io/blog/2023/11月/运动饮料</link>
+            <guid>https://lin-xii.github.io/blog/2023/11月/运动饮料</guid>
+            <pubDate>Fri, 10 Nov 2023 00:00:00 GMT</pubDate>
+            <description><![CDATA[平时几乎不喝饮料，也就喝点加多宝和脉动。本篇观点，以脉动为基础进行思考。]]></description>
+            <content:encoded><![CDATA[<p>平时几乎不喝饮料，也就喝点加多宝和脉动。本篇观点，以脉动为基础进行思考。</p><h2 class="anchor anchorWithStickyNavbar_LWe7" id="起因">起因<a href="#起因" class="hash-link" aria-label="起因的直接链接" title="起因的直接链接">​</a></h2><p>最近买了自行车通勤上下班，由于冬天穿的厚，每天出汗量增加，考虑要不要喝点脉动<em>补补</em>。无意间瞥了眼营养成分表，emmm。。。</p><h2 class="anchor anchorWithStickyNavbar_LWe7" id="脉动的主要成分">脉动的主要成分<a href="#脉动的主要成分" class="hash-link" aria-label="脉动的主要成分的直接链接" title="脉动的主要成分的直接链接">​</a></h2><ul><li>维生素 C</li><li>维生素 B6</li><li>烟酸(烟酰酸)</li></ul><p>一些占比，非常低，或者<strong>看起来非常低</strong>的营养素：热量、蛋白质、甜味物质、脂肪和<strong>碳水化合物</strong>。</p><h2 class="anchor anchorWithStickyNavbar_LWe7" id="值的关注的问题">值的关注的问题<a href="#值的关注的问题" class="hash-link" aria-label="值的关注的问题的直接链接" title="值的关注的问题的直接链接">​</a></h2><blockquote><p>合理膳食行动以及《中国居民膳食指南（2022）》中均推荐“人均每日添加糖摄入量不高于 25g”。 提倡不喝或少喝含糖饮料。</p></blockquote><p>前面列出的营养素，都是运动饮料中的主要成分。但是，以青柠口味的脉动为例，碳水占比看起来只有有 2%（每 100ml）。</p><p>看起来，2% 的碳水，不是很多，甚至可以算少。但是，这里碳水的构成成分，是<strong>糖</strong>，并且<strong>只有糖</strong>。而且每 100ml 的含量达到了 4.8g。</p><p>以 2022 年的膳食指南推荐，人均摄入量，不应该高于 25g。如果喝一瓶 600ml 的脉动，这个数值就已经超出 15%了。</p><h2 class="anchor anchorWithStickyNavbar_LWe7" id="不做二极管">不做二极管<a href="#不做二极管" class="hash-link" aria-label="不做二极管的直接链接" title="不做二极管的直接链接">​</a></h2><p>脉动所提供的维生素，是有价值的，但所含有的高糖分，也不能忽视。如果你的饮食已经足够健康，那么脉动的维生素，就是多余的。如果你的饮食不够健康，那么脉动的糖分，就是多余的。</p><p>根据国家体育总局的文章《<a href="https://www.sport.gov.cn/n20001280/n20745751/n20767239/c23438698/content.html#:~:text=%E6%9C%89%E7%A0%94%E7%A9%B6%E8%AF%81%E6%98%8E%EF%BC%8C%E9%95%BF%E6%97%B6%E9%97%B4,%E5%92%8C%E7%BB%B4%E7%94%9F%E7%B4%A0%E7%AD%89%E5%BE%AE%E9%87%8F%E5%85%83%E7%B4%A0%E3%80%82" target="_blank" rel="noopener noreferrer">运动后如何补水要问问运动量</a>》,也是只有在大负荷（且 60 分钟以上）运动后，才可能需要运动饮料。</p><p>所以，平时还是少喝运动饮料吧。或者选择小包装，200/400ml 容量的。</p><h2 class="anchor anchorWithStickyNavbar_LWe7" id="结论">结论<a href="#结论" class="hash-link" aria-label="结论的直接链接" title="结论的直接链接">​</a></h2><p>为了顺利活着，有选择性的喝饮料。</p>]]></content:encoded>
+            <category>饮料</category>
+            <category>运动</category>
+        </item>
+        <item>
             <title><![CDATA[fix 413 Payload too large]]></title>
             <link>https://lin-xii.github.io/blog/2023/10月/413-payload-too-large</link>
             <guid>https://lin-xii.github.io/blog/2023/10月/413-payload-too-large</guid>
@@ -106,16 +116,6 @@
             <category>vscode</category>
             <category>插件</category>
             <category>GraphQL</category>
-        </item>
-        <item>
-            <title><![CDATA[一些剁手前的分析]]></title>
-            <link>https://lin-xii.github.io/blog/2023/6月/buy</link>
-            <guid>https://lin-xii.github.io/blog/2023/6月/buy</guid>
-            <pubDate>Thu, 29 Jun 2023 00:00:00 GMT</pubDate>
-            <description><![CDATA[显示器]]></description>
-            <content:encoded><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="显示器">显示器<a href="#显示器" class="hash-link" aria-label="显示器的直接链接" title="显示器的直接链接">​</a></h2><p>42、4k 可以接受</p><p>因为用<strong>U2422HX</strong>纵向使用, 发现看 log、shell 真爽</p><p>根据 U2422HX 的尺寸 53.6x36.4, 再结合 LG C3 的尺寸, 93.2x57.7. 尺寸可以接受</p><p>唯一需要考虑的, 就是桌子的深度. 60 有些勉强, 因为需要考虑显示器支架的深度. 所以, 80 是比较合理的一个预想值</p><p>标准:</p><ul><li>4k</li><li>42 英寸</li><li>桌子&gt;60cm 的深度</li></ul><p>目前可用的选项</p><ul><li>LG C3 42</li><li>ROG PG42UQ</li></ul><h2 class="anchor anchorWithStickyNavbar_LWe7" id="ipad---m-芯片的-mini--pro-11">iPad -&gt; M 芯片的 mini / pro 11<a href="#ipad---m-芯片的-mini--pro-11" class="hash-link" aria-label="iPad -> M 芯片的 mini / pro 11的直接链接" title="iPad -> M 芯片的 mini / pro 11的直接链接">​</a></h2><p>12.9、11、air、mini、ipad 10、ipad 9:</p><h3 class="anchor anchorWithStickyNavbar_LWe7" id="cpu">CPU<a href="#cpu" class="hash-link" aria-label="CPU的直接链接" title="CPU的直接链接">​</a></h3><p>pro、air、mini、iPad, 依次递减一个代系的 CPU</p><p>M2、M1、A15、A14、A13</p><h3 class="anchor anchorWithStickyNavbar_LWe7" id="屏幕">屏幕<a href="#屏幕" class="hash-link" aria-label="屏幕的直接链接" title="屏幕的直接链接">​</a></h3><h4 class="anchor anchorWithStickyNavbar_LWe7" id="129--11--105">12.9 &gt; 11 &gt; 10.5<a href="#129--11--105" class="hash-link" aria-label="12.9 > 11 > 10.5的直接链接" title="12.9 > 11 > 10.5的直接链接">​</a></h4><ul><li>12.9 相比 11, XDR 和尺寸. 但没什么必要. 太大了, 反而不如直接上 MBP 了. 虽然 ipad 看起来方便, 但是系统并没那么方便</li><li>10.5 和这俩相比, 就分辨率低了点, cpu 啥的硬件老了点, 别的区别不大<ul><li>显示效果, 应该差距就还好</li><li>所以, 显示效果, 依旧标杆. 不用为了显示效果去换 ipad</li></ul></li></ul><h4 class="anchor anchorWithStickyNavbar_LWe7" id="airmini">Air、mini<a href="#airmini" class="hash-link" aria-label="Air、mini的直接链接" title="Air、mini的直接链接">​</a></h4><p>刀法也够精准的...</p><p>promotion 都砍一刀、mini 的 cpu 再砍一刀...服了</p><h4 class="anchor anchorWithStickyNavbar_LWe7" id="ipad">iPad<a href="#ipad" class="hash-link" aria-label="iPad的直接链接" title="iPad的直接链接">​</a></h4><p>屏幕素质又砍了一刀, 没有 P3 广色域了...</p><p>抗反射涂层也没了</p><h3 class="anchor anchorWithStickyNavbar_LWe7" id="键盘">键盘<a href="#键盘" class="hash-link" aria-label="键盘的直接链接" title="键盘的直接链接">​</a></h3><p>不需要了. 没有用 ipad pro 或者 ipad mini 写代码的需求. 真要有, filco 和后买的这个红轴, 蓝牙都能用.</p><p>出差? 你出差用 ipad 干活么? 肯定带着 mbp 啊. 怎么会用 ipad 写代码...</p><h3 class="anchor anchorWithStickyNavbar_LWe7" id="笔">笔<a href="#笔" class="hash-link" aria-label="笔的直接链接" title="笔的直接链接">​</a></h3><p>二代的笔可以磁吸了, 倒是可以考虑下. 看 pdf? 或许吧</p><p>所以啊. 不特意给老妈买 ipad 了. 我买旗舰, 老大用个二手旗舰吧还是</p><p>ipad mini 的尺寸, 确实更适合偶尔看看. ipad pro, 还是大了点.</p><p>人啊, 总想用更小的体积, 却能得到更大的视野. 看起来, 只有 vision pro 能做到</p><p>Air2、10.5 如果不出问题, 就不换了. 真出了问题, 再考虑换吧. 到时候, 再去费这个心吧.</p><p>希望后边, 能有 M 芯片的 mini</p>]]></content:encoded>
-            <category>剁手</category>
-            <category>买买买</category>
         </item>
     </channel>
 </rss>
