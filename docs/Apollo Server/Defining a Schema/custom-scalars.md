@@ -6,7 +6,7 @@ tags: [Apollo, GraphQL, 渣翻译]
 sidebar_position: 3
 ---
 
-GraphQL 规范包含了默认的 scalar 类型，`Int`、`Float`、`String`、`Boolean`和`ID`。虽然这些 scalar 类型覆盖了主要的使用场景，但一些应用需要支持其他的原子数据类型(例如`Date`)或给现有的类型增加校验。为了使这些成为可能，你可以定义 custom scalar 类型。
+GraphQL 规范包含了默认的 scalar 类型，`Int`、`Float`、`String`、`Boolean` 和 `ID`。虽然这些 scalar 类型覆盖了大部分使用场景，但一些应用需要支持其他的原子数据类型（例如 `Date` ）或给现有的类型增加校验。为了满足这些场景，可以定义 custom scalar 类型来实现。
 
 ## 定义 custom scalar
 
@@ -16,13 +16,13 @@ GraphQL 规范包含了默认的 scalar 类型，`Int`、`Float`、`String`、`B
 scalar MyCustomScalar
 ```
 
-你可以立刻使用`MyCustomScalar`，在 schema 中的任何可以使用默认 scalar 的地方(例如，对象字段的类型、输入类型的字段或者参数)。
+你可以立刻使用 `MyCustomScalar`，在 schema 中可以使用默认 scalar 的地方(例如，对象字段的类型、input 类型的字段或者参数)。
 
-然而，Apollo Server 还需要知道如何处理新类型的值。
+不过，Apollo Server 需要知道如何处理新类型的值。
 
 ## 定义 custom scalar 的逻辑
 
-在定义一个 custom scalar 类型后，需要定义 Apollo Server 如何处理这个类型。特别是，你需要定义下面几点：
+在定义一个 custom scalar 类型后，需要定义 Apollo Server 如何处理这个类型。需要定义下面几点：
 
 - scalar 的值如何在后端表示
   - This is often the representation used by the driver for your backing data store.
@@ -30,7 +30,7 @@ scalar MyCustomScalar
 - 值的后端表现形式如何序列化为兼容 JSON 的类型
 - 兼容 JSON 的表现形式如何反序列化为后端的表现形式
 
-在`GraphQLScalarType`类的实例中定义这些交互。
+在 `GraphQLScalarType` 类的实例中定义这些交互。
 
 > 私货：表现形式，或许换成存储方式，更合适一点？
 
@@ -42,20 +42,22 @@ scalar MyCustomScalar
 >
 > 如果你正在使用 JavaScript，使用`.js`和`.jsx`文件扩展名而不是`.ts`和`.tsx`。
 
-下面的`GraphQLScalarType`对象为一个展示日期(这是一个最常见的 custom scalar 实现方式)的 custom scalar 定义了处理逻辑。它假设我们的后端使用 JavaScript 的`Date`对象表达一个日期。
+下面的 `GraphQLScalarType` 对象为一个展示日期（这是一个最常见的 custom scalar 实现方式）的 custom scalar 定义了处理逻辑。它假设我们的后端使用 JavaScript 的 `Date` 对象表达一个日期。
 
-```typescript
+```javascript
 import { GraphQLScalarType, Kind } from "graphql";
 
 const dateScalar = new GraphQLScalarType({
   name: "Date",
   description: "Date custom scalar type",
+  // backend to frontend
   serialize(value) {
     if (value instanceof Date) {
       return value.getTime(); // Convert outgoing Date to integer for JSON
     }
     throw Error("GraphQL Date Scalar serializer expected a `Date` object");
   },
+  // frontend to backend
   parseValue(value) {
     if (typeof value === "number") {
       return new Date(value); // Convert incoming integer to Date
@@ -126,7 +128,7 @@ import { startStandaloneServer } from "@apollo/server/standalone";
 import { GraphQLScalarType, Kind } from "graphql";
 
 const typeDefs = `#graphql
- scalar Date
+  scalar Date
 
   type Event {
     id: ID!
